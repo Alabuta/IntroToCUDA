@@ -11,8 +11,8 @@ configure_file(
     "${PROJECT_SOURCE_DIR}/include/config.h"
 )
 
-#set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG "${PROJECT_SOURCE_DIR}/../bin")
-#set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE "${PROJECT_SOURCE_DIR}/../bin")
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG "./bin")
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE "./bin")
 
 include_directories(SYSTEM include)
 include_directories(src)
@@ -83,12 +83,11 @@ elseif(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
 endif()
 
 target_link_libraries(${PROJECT_NAME} PRIVATE
-    -Wl,-no-undefined
-    -Wl,-no-allow-shlib-undefined
-    -Wl,-unresolved-symbols=report-all
+    #-Wl,-no-undefined
+    #-Wl,-no-allow-shlib-undefined
+    #-Wl,-unresolved-symbols=report-all
 
-    pthread
+    #pthread
 
-    stdc++fs
-)
+    #stdc++fs
 
