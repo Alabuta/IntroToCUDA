@@ -1,6 +1,6 @@
 ﻿#include "main.hxx"
 
-extern void wrapper();
+extern void gpgpuWrapper();
 
 void add(std::vector<float> &a, std::vector<float> &b)
 {
@@ -27,7 +27,7 @@ int main()
         return std::max(max_error, std::abs(number - expected_value)) != max_error;
     });
 
-    wrapper();
-
     std::cout << std::boolalpha << "Range is different: "s << differs << '\n';
+
+    gpgpuWrapper();
 }
