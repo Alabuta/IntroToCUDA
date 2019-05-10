@@ -1,6 +1,10 @@
 ﻿#pragma once
 
 #include <iostream>
-#include <tuple>
+#include <algorithm>
+#include <execution>
+#include <vector>
+#include <cmath>
 
-#include <glm/glm.hpp>
+#include <string>
+using namespace std::string_literals;
