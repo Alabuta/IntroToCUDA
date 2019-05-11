@@ -16,6 +16,9 @@ configure_file(
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG "${PROJECT_SOURCE_DIR}/bin")
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE "${PROJECT_SOURCE_DIR}/bin")
 
+include_directories(SYSTEM include)
+include_directories(src)
+
 option(USE_CUDA_IMPL "Use CUDA implementation" ON)
 
 if(USE_CUDA_IMPL)
@@ -27,11 +30,7 @@ if(USE_CUDA_IMPL)
 	add_library(${PROJECT_NAME_CUDA_IMPL} STATIC src/lib.cu)
 
 	include_directories(SYSTEM "$ENV{CUDA_PATH}/include")
-	#target_include_directories(${PROJECT_NAME_CUDA_IMPL} SYSTEM "$ENV{CUDA_PATH}/include")
 endif()
-
-include_directories(SYSTEM include)
-include_directories(src)
 
 set(SOURCE_FILES
     src/main.hxx	src/main.cxx

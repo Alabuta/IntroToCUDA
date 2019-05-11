@@ -35,7 +35,10 @@ void gpgpuWrapper()
 
     add<<<kGRID_DIM, kBLOCK_DIM>>>(N, device_a.data(), device_b.data());
 
-    cudaDeviceSynchronize();
+    auto error_code = cudaDeviceSynchronize();
+
+    if (error_code != cudaError::cudaSuccess)
+        std::cout << "An error is happened: "s << std::string{cudaGetErrorString(error_code)} << '\n';
 
     auto count = thrust::count(device_a.begin(), device_a.end(), 3.f);
 
